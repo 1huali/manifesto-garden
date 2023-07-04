@@ -1,7 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    font-size: 2rem; /* Adjust the base font size as needed */
+    font-size: 1.5rem; /* Adjust the base font size as needed */
   }
   
   #map {
@@ -34,7 +34,7 @@ body {
     padding: 0.3rem;
     background-color: yellow;
     z-index: 60;
-    font-size: 1rem; /* Adjust the button font size as needed */
+    font-size: 1.5rem; /* Adjust the button font size as needed */
   }
   
   #about-popUpTab {
@@ -56,6 +56,7 @@ body {
   
   #popUpTab-content {
     color: black;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   #popUpTab-titlebox{
@@ -66,6 +67,7 @@ body {
   }
 
   #popUpTab-content-title{
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     padding: 1%;
     text-align: center;
@@ -97,10 +99,22 @@ body {
     padding-right: 0.5rem;
   }
 
+
   #sidebar-content-title{
-font-size: 2rem;
-padding: 1%;
-text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    padding: 1%;
+    text-align: center;
+  }
+
+  #sidebar-titlebox{
+    position:fixed;
+    top: 0;
+    left: 0;
+    padding-bottom: 5vh;
+    width: 25vw;
+    height: 10vh;
+    background-color: rgb(231, 239, 109);
   }
 
   #sidebar-content-text{
