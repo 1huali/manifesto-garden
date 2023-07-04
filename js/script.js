@@ -36,9 +36,20 @@ window.onload = (event) => {
 // IMAGE OBJECT ON MAP:
 // let imgObj3 = L.imageOverlay("assets/images/flowerAxis3.png",[[51.520493, -0.046692], [51.520493+10, -0.046692+17]], {interactive:true}).addTo(map);
 // let imgObj2 = L.imageOverlay("assets/images/flowerAxis2.png",[[40.773941+10, -74.12544+17], [40.773941, -74.12544]], {interactive:true}).addTo(map);
-let axisObj = new Axis(map,img).addTo(map);
-axisObj.display(map);
-console.log(imgObj);
+let axisArray=[];
+let axisObj = new Axis(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17]);
+let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544]);
+let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17]);
+axisArray.push(axisObj);
+axisArray.push(axisObj2);
+axisArray.push(axisObj3);
+
+
+for (let i=0;i<axisArray.length;i++){
+  axisArray[i].display(map);
+  axisArray[i].onClick();
+}
+
 
 // on click:
 // imgObj.addEventListener("click", function(){
@@ -49,13 +60,13 @@ console.log(imgObj);
 //   console.log("Clicked on flower");
 // });
 
-imgObj2.on("click", function () {
-  console.log("Clicked on flower2");
-});
+// imgObj2.on("click", function () {
+//   console.log("Clicked on flower2");
+// });
 
-imgObj3.on("click", function () {
-  console.log("Clicked on flower3");
-});
+// imgObj3.on("click", function () {
+//   console.log("Clicked on flower3");
+// });
 
 //POP-UP SETTINGS
   let popup = L.popup();
