@@ -68,6 +68,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 2.5rem;
+    overflow: scroll;
   }
   
   #sidebar-content {
@@ -75,6 +76,16 @@ body {
     padding-top: 1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  #sidebar-content-title{
+font-size: 2rem;
+padding: 1%;
+text-align: center;
+  }
+
+  #sidebar-content-text{
+    background-color: rgb(255, 255, 255);
   }
   
   #tileImgArray img {
