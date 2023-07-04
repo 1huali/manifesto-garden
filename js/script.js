@@ -37,6 +37,7 @@ window.onload = (event) => {
 // let imgObj3 = L.imageOverlay("assets/images/flowerAxis3.png",[[51.520493, -0.046692], [51.520493+10, -0.046692+17]], {interactive:true}).addTo(map);
 // let imgObj2 = L.imageOverlay("assets/images/flowerAxis2.png",[[40.773941+10, -74.12544+17], [40.773941, -74.12544]], {interactive:true}).addTo(map);
 let axisObj = new Axis(map,img).addTo(map);
+axisObj.display(map);
 console.log(imgObj);
 
 // on click:

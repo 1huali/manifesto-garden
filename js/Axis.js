@@ -13,7 +13,7 @@ class Axis {
     }
 
     //this object creates a png into a map object on a map location and that is interactive
-    display(img){
+    display(){
         L.imageOverlay(this.img,[this.minBound, this.maxBound], {interactive:true}).addTo(map);
     }
 } //fin
