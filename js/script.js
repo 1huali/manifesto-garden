@@ -35,7 +35,7 @@ window.onload = (event) => {
 
 // IMAGE OBJECT ON MAP:
 let imgObj;
-imgObj = L.imageOverlay("assets/images/flowerAxis3.jpg",[[51.513, -0.09], [40.773941, -74.12544]]).addTo(map);
+imgObj = L.imageOverlay("assets/images/flowerAxis3.png",[[51.513, -0.09], [40.773941, -74.12544]]).addTo(map);
 
 imgObj.addEventListener("click", function(){
   console.log("clicked on flowa")
