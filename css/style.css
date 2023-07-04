@@ -91,7 +91,7 @@ body {
     padding-top: 2.5rem;
     overflow: scroll;
   }
-  
+  /* DESKTOP SETUP : */
   #sidebar-content {
     color: black;
     padding-top: 1rem;
@@ -114,7 +114,7 @@ body {
     padding-bottom: 5vh;
     width: 25vw;
     height: 10vh;
-    background-color: rgb(231, 239, 109);
+    /* background-color: rgb(231, 239, 109); */
   }
 
   #sidebar-content-text{

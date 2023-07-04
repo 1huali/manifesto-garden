@@ -33,20 +33,38 @@ window.onload = (event) => {
   };
 
   L.tileLayer.custom().addTo(map);
+           //DESC OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+// let axis1Text = document.getElementById("axis1Text");
+// let axis2Text = document.getElementById("axis2Text");
+// let axis3Text = document.getElementById("axis3Text");
+let axis1Text =   "allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, ";
+let axis2Text =   "hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello";
+let axis3Text =   "beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop";
+
+document.getElementById("sidebar-titlebox").addEventListener("click", function (){
+document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu";
+});
 
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArray=[];
-let axisObj = new Axis(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17]);
-let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544]);
-let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17]);
+let axisObj = new Axis(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17],axis1Text);
+let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text);
+let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text);
 axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
 
 
-for (let i=0;i<axisArray.length;i++){
-  axisArray[i].onClick(axisArray[i].img);
-}
+//sabine edits:
+// let axis1latLngBounds=L.latLngBounds([36.315125, -21.796875],[36.315125+10, -21.796875+17]);
+// let axisObj = new Axis(map,"assets/images/flowerAxis.png",axis1latLngBounds,axis1Text);
+// let axis2latLngBounds=L.latLngBounds([40.773941+10, -74.12544+17], [40.773941, -74.12544]);
+// let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",axis2latLngBounds,axis2Text);
+// let axis3latLngBounds=L.latLngBounds([51.520493, -0.046692], [51.520493+10, -0.046692+17]);
+// let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",axis3latLngBounds,axis3Text);
+// axisArray.push(axisObj);
+// axisArray.push(axisObj2);
+// axisArray.push(axisObj3);
 
 //POP-UP SETTINGS
   let popup = L.popup();
