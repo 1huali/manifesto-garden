@@ -34,13 +34,29 @@ window.onload = (event) => {
   L.tileLayer.custom().addTo(map);
 
 // IMAGE OBJECT ON MAP:
-let imgObj;
-imgObj = L.imageOverlay("assets/images/flowerAxis3.png",[[51.513, -0.09], [40.773941, -74.12544]]).addTo(map);
+// let imgObj3 = L.imageOverlay("assets/images/flowerAxis3.png",[[51.520493, -0.046692], [51.520493+10, -0.046692+17]], {interactive:true}).addTo(map);
+// let imgObj2 = L.imageOverlay("assets/images/flowerAxis2.png",[[40.773941+10, -74.12544+17], [40.773941, -74.12544]], {interactive:true}).addTo(map);
+let axisObj = new Axis(map,img).addTo(map);
+console.log(imgObj);
 
-imgObj.addEventListener("click", function(){
-  console.log("clicked on flowa")
-})
+// on click:
+// imgObj.addEventListener("click", function(){
+//   console.log("clicked on flowa")
+// });
 
+// imgObj.on("click", function () {
+//   console.log("Clicked on flower");
+// });
+
+imgObj2.on("click", function () {
+  console.log("Clicked on flower2");
+});
+
+imgObj3.on("click", function () {
+  console.log("Clicked on flower3");
+});
+
+//POP-UP SETTINGS
   let popup = L.popup();
   function onMapClick(e) {
     popup
@@ -48,20 +64,8 @@ imgObj.addEventListener("click", function(){
     .setContent("You clicked in " + e.latlng.toString ())
     .openOn(map);
 }
+// map.on('click', onMapClick);
 
-map.on('click', onMapClick);
-
-
-//   // Pop-up object ON MAP
-//   let popup = L.popup()
-//     .setContent("I am a standalone popup.");
-
-//   // Second Pop-up object
-//   let popup2 = L.popup()
-//     .setContent("I am another popup.");
-
-//   L.marker([51.513, -0.09]).bindPopup(popup).addTo(map);
-//   L.marker([51.513, -0.0895]).bindPopup(popup2).addTo(map);
 
 
 //mobile setups
