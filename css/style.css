@@ -94,7 +94,7 @@ body {
   /* DESKTOP SETUP : */
   #sidebar-content {
     color: black;
-    padding-top: 1rem;
+    padding-top: 10vh;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
