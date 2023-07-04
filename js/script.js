@@ -33,21 +33,26 @@ window.onload = (event) => {
 
   L.tileLayer.custom().addTo(map);
 
-  let flowerAxis1= document.getElementById("flowerAxis1");
-  let flowerAxis2=document.getElementById("flowerAxis2") ;
-  let flowerAxis3 = document.getElementById("flowerAxis3");
+// IMAGE OBJECT ON MAP:
+let imgObj;
+imgObj = L.imageOverlay("assets/images/flowerAxis3.jpg",[[51.513, -0.09], [40.773941, -74.12544]]).addTo(map);
 
-//   // Sticky image marker
-  let imageUrl = "assets/images/flowerAxis.jpg";
-//   let imageUrl2= "assets/images/flora-testPopup2.png"; 
-  let imageIcon = L.icon({
-    iconUrl: imageUrl,
-    iconSize: [70, 70], // Adjust the icon size as needed
-    iconAnchor: [24, 24], // Adjust the icon anchor point as needed
-  });
-//   let imageMarker = L.marker([51.513, -0.09], { icon: imageIcon }).addTo(map);
+imgObj.addEventListener("click", function(){
+  console.log("clicked on flowa")
+})
 
-//   // Pop-up object
+  let popup = L.popup();
+  function onMapClick(e) {
+    popup
+    .setLatLng(e.latlng)
+    .setContent("You clicked in " + e.latlng.toString ())
+    .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+
+//   // Pop-up object ON MAP
 //   let popup = L.popup()
 //     .setContent("I am a standalone popup.");
 
@@ -57,14 +62,6 @@ window.onload = (event) => {
 
 //   L.marker([51.513, -0.09]).bindPopup(popup).addTo(map);
 //   L.marker([51.513, -0.0895]).bindPopup(popup2).addTo(map);
-
-  
-    //marker image trigger something on click event : 
-// imageMarker.addEventListener("click", function(){
-//     console.log("CLICKD SEED")
-// })
-const imageOverlay = L.imageOverlay(imageUrl, [[51.513, -0.09]]).addTo(map);
-
 
 
 //mobile setups
@@ -85,7 +82,7 @@ if (L.Browser.mobile) {
     console.log("bibidibabidbidoubooo");
     });
   }
-  
+
   //close about:
     document.getElementById("about-popUpTab").addEventListener("click", function(){
     document.getElementById("about-popUpTab").style="display:none";

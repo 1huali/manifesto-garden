@@ -58,6 +58,13 @@ body {
     color: black;
   }
 
+  #popUpTab-titlebox{
+    position:fixed;
+    width: 85vw;
+    height: 5vh;
+    background-color: rgb(231, 239, 109);
+  }
+
   #popUpTab-content-title{
     font-size: 2rem;
     padding: 1%;
