@@ -3,7 +3,6 @@ window.onload = (event) => {
   // desktop frame settings :
   document.getElementById("about-popUpTab").style.display = "none";
   document.getElementById("about-sidebar").style.display = "block";
-  document.getElementById("buttonBox-container").style.display = "none";
 
   // map object:
   let map = L.map("map").setView([51.505, -0.09], 13);
@@ -65,23 +64,29 @@ window.onload = (event) => {
 //     console.log("CLICKD SEED")
 // })
 const imageOverlay = L.imageOverlay(imageUrl, [[51.513, -0.09]]).addTo(map);
-let aboutButton = document.getElementById("mainButton");
 
-aboutButton.addEventListener("click", function(){
-console.log("bibidibabidbidoubooo")
-});
 
 
 //mobile setups
 if (L.Browser.mobile) {
     console.log("mobile version");
     document.getElementById("about-sidebar").style="display:none";
-    document.getElementById("mainButton").style="display:block";
+    document.getElementById("buttonBox-container").style.display = "block";
+  let aboutButton = document.getElementById("mainButton");
 
-    aboutButton.addEventListener("click", function(){
+  aboutButton.addEventListener("click", function(){
     document.getElementById("about-popUpTab").style="display:block";
     });
 
+
+  function mainButton(){
+
+    aboutButton.addEventListener("click", function(){
+    console.log("bibidibabidbidoubooo");
+    });
+  }
+  
+  //close about:
     document.getElementById("about-popUpTab").addEventListener("click", function(){
     document.getElementById("about-popUpTab").style="display:none";
     });

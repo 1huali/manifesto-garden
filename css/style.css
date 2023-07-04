@@ -1,7 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    font-size: 1rem; /* Adjust the base font size as needed */
+    font-size: 2rem; /* Adjust the base font size as needed */
   }
   
   #map {
@@ -24,6 +24,7 @@ body {
     height: 7rem;
     background-color: rgb(101, 101, 101);
     padding: 0.5rem;
+    display: none;
   }
   
   #mainButton {
@@ -33,7 +34,6 @@ body {
     padding: 0.3rem;
     background-color: yellow;
     z-index: 60;
-    display: block;
     font-size: 1rem; /* Adjust the button font size as needed */
   }
   
@@ -50,10 +50,22 @@ body {
     padding-right: 1rem;
     padding-top: 2.5rem;
     display: block;
+    overflow: scroll;
+
   }
   
   #popUpTab-content {
     color: black;
+  }
+
+  #popUpTab-content-title{
+    font-size: 2rem;
+    padding: 1%;
+    text-align: center;
+  }
+
+  #popUpTab-content-text{
+    background-color: rgb(255, 255, 255);
   }
   
   #about-sidebar {
