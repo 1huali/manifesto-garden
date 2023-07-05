@@ -48,11 +48,13 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArray=[];
 let axisObj = new Flower(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17],axis1Text,"axis # : babababbaba");
-let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text,"axis # : bebebebebeb");
-let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text,"axis # : boobooobobob");
+// let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text,"axis # : bebebebebeb");
+// let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text,"axis # : boobooobobob");
 axisArray.push(axisObj);
-axisArray.push(axisObj2);
-axisArray.push(axisObj3);
+// axisArray.push(axisObj2);
+// axisArray.push(axisObj3);
+
+let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10]);
 
 
 //sabine edits:
