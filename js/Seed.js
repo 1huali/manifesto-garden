@@ -5,7 +5,7 @@
         this.map=map
         this.img=img;
         this.link=link; //lien de la ressource
-        //test getting position
+        //test getting (x,y) position (from sr example):
         console.log(coord);
         this.minBound=[coord.lat, coord.lng];
         this.maxBound =[coord.lat+10, coord.lng+10];
@@ -22,7 +22,7 @@
 
         this.imgOverlay.on('click', function() {
 //             document.getElementById("sidebar-content-text").innerHTML = info;
-window.open(link,'_blank');
+            window.open(link,'_blank');
 //             if (L.Browser.mobile) {
 // //code for mobile
 //             }
@@ -39,7 +39,6 @@ window.open(link,'_blank');
 
         //test seed :
         this.position = null;
-        console.log(minBound)
     }
 
 

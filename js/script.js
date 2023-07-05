@@ -54,11 +54,16 @@ axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
 
-console.log(axisObj.seedArray); // Array of seed objects associated with the flower
+for (let i=0;i<axisArray.length;i++){
+  console.log(axisArray[1]); // Array of seed objects associated with the flower
+axisArray[1].generateSeeds(1);
+}
+
+
 
 
 //seeds created thru js: 
-let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10],"https://www.galeriegalerieweb.com/");
+// let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10],"https://www.galeriegalerieweb.com/");
 // Helper function to calculate the position of the seed within the radial perimeter
 
 function calculatePosition(seedIndex, seedCount) {
@@ -72,16 +77,6 @@ function calculatePosition(seedIndex, seedCount) {
   return { lat, lng };
 }
 
-//sabine edits:
-// let axis1latLngBounds=L.latLngBounds([36.315125, -21.796875],[36.315125+10, -21.796875+17]);
-// let axisObj = new Axis(map,"assets/images/flowerAxis.png",axis1latLngBounds,axis1Text);
-// let axis2latLngBounds=L.latLngBounds([40.773941+10, -74.12544+17], [40.773941, -74.12544]);
-// let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",axis2latLngBounds,axis2Text);
-// let axis3latLngBounds=L.latLngBounds([51.520493, -0.046692], [51.520493+10, -0.046692+17]);
-// let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",axis3latLngBounds,axis3Text);
-// axisArray.push(axisObj);
-// axisArray.push(axisObj2);
-// axisArray.push(axisObj3);
 
 //POP-UP SETTINGS
   let popup = L.popup();

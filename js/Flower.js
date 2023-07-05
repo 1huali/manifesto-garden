@@ -12,11 +12,13 @@ class Flower {
         // this.maxBound =[coord.lat+10, coord.lng+10];
         this.minBound=minBound;
         this.maxBound=maxBound;
-        console.log(minBound,maxBound);
         //test coords:
         let latLngBounds = L.latLngBounds([minBound,maxBound]);
-//
-        this.imgOverlay = L.imageOverlay(this.img,[latLngBounds], {interactive:true}).addTo(map);
+        map.fitBounds(latLngBounds);
+        console.log(latLngBounds) //error
+
+
+        this.imgOverlay = L.imageOverlay(this.img,latLngBounds, {interactive:true}).addTo(map);
         this.info=info;
 
 
@@ -35,6 +37,15 @@ class Flower {
         // this.n_latLng = new L.latLng(lat,lng);
     }
 
-
+    //creates a Seed and pushes it to the this.seedArray
+    generateSeeds(seedCount) {
+        for (let i = 0; i < seedCount; i++) {
+            //?? what to use for coords :
+          let seed = new Seed(this.map,"assets/images/seedImg.png",[this.minBound,this.maxBound],"https://www.galeriegalerieweb.com/");
+          seed.position = calculatePosition(i, seedCount);
+          seed.addToMap(this.map);
+          this.seedArray.push(seed);
+        }
+      }
 
 } //fin
