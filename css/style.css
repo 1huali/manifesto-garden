@@ -84,7 +84,6 @@ body {
     background-color: rgb(255, 255, 255);
     font-size: 2.2rem;
   }
-  
   /* SIDEBAR SETUP (DESKTOP) */
   #about-sidebar {
     position: absolute;
@@ -108,14 +107,6 @@ body {
     padding-right: 0.5rem;
   }
 
-
-  #sidebar-content-title{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
-    padding: 1%;
-    text-align: center;
-  }
-
   #sidebar-titlebox{
     position:fixed;
     top: 0;
@@ -125,9 +116,51 @@ body {
     height: 10vh;
     /* background-color: rgb(231, 239, 109); */
   }
+  #sidebar-content-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    padding: 1%;
+    text-align: center;
+  }
 
   #sidebar-content-text{
     background-color: rgb(255, 255, 255);
+  }
+
+  /* AXIS TAB SETUPS */
+  #axisTab-container{
+    position: absolute;
+    display: none;
+    z-index: 5;   /* has to go on top of the "about button" */
+    bottom: 0px;
+    width: 100vw;
+    height: 30vh;
+    background-color:  rgb(255, 213, 0);
+    overflow: scroll;
+
+  }
+  #axis-titlebox{
+    position:fixed;
+    display: block;
+    left: 0;
+    width: 100vw;
+    height: 5vh;
+    z-index: 6;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color:  rgb(255, 213, 0);
+  }
+  #axis-content-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  #axisTab-content{
+    background-color: rgb(255, 255, 255);
+    font-size: 2.2rem;
+    padding: 3%;
+    padding-top: 8vh;
   }
   
   #tileImgArray img {
@@ -163,4 +196,5 @@ body {
       width: 30vw;
       padding-top: 1.5rem;
     }
+
   }

@@ -47,9 +47,9 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
 
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArray=[];
-let axisObj = new Axis(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17],axis1Text);
-let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text);
-let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text);
+let axisObj = new Axis(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17],axis1Text,"axis # : babababbaba");
+let axisObj2 = new Axis(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text,"axis # : bebebebebeb");
+let axisObj3 = new Axis(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text,"axis # : boobooobobob");
 axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
@@ -78,7 +78,7 @@ axisArray.push(axisObj3);
 
 
 
-//mobile setups
+           //MOBILE SETUPS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 if (L.Browser.mobile) {
     console.log("mobile version");
     document.getElementById("about-sidebar").style="display:none";
@@ -88,6 +88,11 @@ if (L.Browser.mobile) {
   aboutButton.addEventListener("click", function(){
     document.getElementById("about-popUpTab").style="display:block";
     });
+
+    document.getElementById("closeButton").addEventListener("click", function(){
+      document.getElementById("axisTab-container").style = "display:none"
+
+    })
 
 
   function mainButton(){
