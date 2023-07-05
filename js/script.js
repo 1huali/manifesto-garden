@@ -54,28 +54,30 @@ axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
 
+//chatGPT solution BUT PRE SURE THIS IS WHERE ITS BUGGING:
+function calculatePosition(seedIndex, seedCount) {
+  // Calculate and return the position based on the index and count
+  // You can use trigonometry or any other logic based on your requirements
+  // For simplicity, let's assume a linear distribution
+  let angle = (2 * Math.PI * seedIndex) / seedCount;
+  let radius = 0.01; // Adjust the radius as needed
+  let lat = axisObj.latLngBounds.lat + radius * Math.cos(angle);
+  let lng = axisObj.latLngBounds.lng + radius * Math.sin(angle);
+  console.log(lat,lng)
+  return { lat, lng };
+}
+
 for (let i=0;i<axisArray.length;i++){
   console.log(axisArray[1]); // Array of seed objects associated with the flower
 axisArray[1].generateSeeds(1);
+
+
 }
-
-
 
 
 //seeds created thru js: 
 // let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10],"https://www.galeriegalerieweb.com/");
 // Helper function to calculate the position of the seed within the radial perimeter
-
-function calculatePosition(seedIndex, seedCount) {
-  // Calculate and return the position based on the index and count
-  // You can use trigonometry or any other logic based on your requirements
-  // For simplicity, let's assume a linear distribution
-  const angle = (2 * Math.PI * seedIndex) / seedCount;
-  const radius = 0.01; // Adjust the radius as needed
-  const lat = flowerLat + radius * Math.cos(angle);
-  const lng = flowerLng + radius * Math.sin(angle);
-  return { lat, lng };
-}
 
 
 //POP-UP SETTINGS
