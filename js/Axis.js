@@ -16,6 +16,11 @@ class Axis {
         console.log(this.info);
         this.imgOverlay.on('click', function() {
             document.getElementById("sidebar-content-text").innerHTML = info;
+
+            if (L.Browser.mobile) {
+            document.getElementById("popUpTab-content-text").innerHTML = info;
+
+            }
         });   
         // this.hoverTitle="";
         // this.hoverTxt="";
