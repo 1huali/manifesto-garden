@@ -114,7 +114,7 @@ body {
     padding-bottom: 5vh;
     width: 25vw;
     height: 10vh;
-    /* background-color: rgb(231, 239, 109); */
+    background-color:  rgb(255, 213, 0);
   }
   #sidebar-content-title{
     font-family: Arial, Helvetica, sans-serif;
@@ -193,8 +193,26 @@ body {
     }
 
     #about-sidebar {
-      width: 30vw;
+      width: 40vw;
+      height: 100vh;
       padding-top: 1.5rem;
+    }
+
+    #sidebar-content {
+      color: black;
+      padding-top: 10vh;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    #sidebar-titlebox{
+      position:fixed;
+      top: 0;
+      left: 0;
+      padding-bottom: 5vh;
+      width: 45vw;
+      height: 5vh;
+      background-color:  rgb(255, 213, 0);
     }
 
   }
