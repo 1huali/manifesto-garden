@@ -12,12 +12,16 @@ class Flower {
         // this.maxBound =[coord.lat+10, coord.lng+10];
         this.minBound=minBound;
         this.maxBound=maxBound;
-        this.imgOverlay = L.imageOverlay(this.img,[this.minBound, this.maxBound], {interactive:true}).addTo(map);
+        console.log(minBound,maxBound);
+        //test coords:
+        let latLngBounds = L.latLngBounds([minBound,maxBound]);
+        //
+        this.imgOverlay = L.imageOverlay(this.img,[latLngBounds], {interactive:true}).addTo(map);
         this.info=info;
-        console.log(this.info);
+        console.log(this.latLngBounds);
 
-        //create new seeds:
-        // this.link = new Link();
+
+        this.seedArray=[];
 
 
         this.imgOverlay.on('click', function() {
@@ -32,18 +36,6 @@ class Flower {
         // this.n_latLng = new L.latLng(lat,lng);
     }
 
-    seeds (){
-        let seedArray=[];
-        let seed1;
-        let seed2;
-    }
 
-
-
-    // popUp(img){
-    //     // this.imgOverlay.on('hover', function() {
-    //     //     console.log('I have been clicked ' + img);
-    //     // }); 
-    // }
 
 } //fin

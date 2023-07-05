@@ -48,14 +48,29 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArray=[];
 let axisObj = new Flower(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17],axis1Text,"axis # : babababbaba");
-// let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text,"axis # : bebebebebeb");
-// let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text,"axis # : boobooobobob");
+let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text,"axis # : bebebebebeb");
+let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text,"axis # : boobooobobob");
 axisArray.push(axisObj);
-// axisArray.push(axisObj2);
-// axisArray.push(axisObj3);
+axisArray.push(axisObj2);
+axisArray.push(axisObj3);
 
-let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10]);
+console.log(axisObj.seedArray); // Array of seed objects associated with the flower
 
+
+//seeds created thru js: 
+let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10],"https://www.galeriegalerieweb.com/");
+// Helper function to calculate the position of the seed within the radial perimeter
+
+function calculatePosition(seedIndex, seedCount) {
+  // Calculate and return the position based on the index and count
+  // You can use trigonometry or any other logic based on your requirements
+  // For simplicity, let's assume a linear distribution
+  const angle = (2 * Math.PI * seedIndex) / seedCount;
+  const radius = 0.01; // Adjust the radius as needed
+  const lat = flowerLat + radius * Math.cos(angle);
+  const lng = flowerLng + radius * Math.sin(angle);
+  return { lat, lng };
+}
 
 //sabine edits:
 // let axis1latLngBounds=L.latLngBounds([36.315125, -21.796875],[36.315125+10, -21.796875+17]);
