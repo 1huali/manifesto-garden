@@ -12,7 +12,7 @@ class Flower {
         // this.maxBound =[coord.lat+10, coord.lng+10];
         this.minBound=minBound;
         this.maxBound=maxBound;
-        //test coords:
+        //test coords **error:
         let latLngBounds = L.latLngBounds([minBound,maxBound]);
         map.fitBounds(latLngBounds);
         console.log(latLngBounds) //error

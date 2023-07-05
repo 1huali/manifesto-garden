@@ -11,7 +11,6 @@
         this.maxBound =[coord.lat+10, coord.lng+10];
 
         console.log(this.img)
-//not linked with a flower yet
         // this.minBound=minBound;
         // this.maxBound=maxBound;
         //test seed:
