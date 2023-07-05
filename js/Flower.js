@@ -15,10 +15,9 @@ class Flower {
         console.log(minBound,maxBound);
         //test coords:
         let latLngBounds = L.latLngBounds([minBound,maxBound]);
-        //
+//
         this.imgOverlay = L.imageOverlay(this.img,[latLngBounds], {interactive:true}).addTo(map);
         this.info=info;
-        console.log(this.latLngBounds);
 
 
         this.seedArray=[];
