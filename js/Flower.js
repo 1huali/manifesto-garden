@@ -47,9 +47,9 @@
               for (let j = 0; j < this.linkArray.length; j++) {
                 let seed = new Seed(
                   this.map,
-                  "assets/images/seedImg.png",
+                  "assets/images/seedImg.png", //could create an img array like linkArray if needed
                   pointlatlngSeed,
-                  this.linkArray[j],
+                  this.linkArray[j], //WHY IT ONLY REACHES THE LAST LINK OF THE INDEX
                   this.xPos,
                   this.yPos
                 );
