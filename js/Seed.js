@@ -14,11 +14,10 @@
         // this.minBound=minBound;
         // this.maxBound=maxBound;
         //test seed:
-        this.seedArray = [];
 
 
         this.imgOverlay = L.imageOverlay(this.img,[this.minBound, this.maxBound], {interactive:true}).addTo(map);
-
+//on img click, a new tab opens: 
         this.imgOverlay.on('click', function() {
 //             document.getElementById("sidebar-content-text").innerHTML = info;
             window.open(link,'_blank');
@@ -26,15 +25,15 @@
 // //code for mobile
 //             }
         });   
-
-        this.imgOverlay.on("mouseover", function(){
-            console.log("mouse hovering seed")
-//temporary pop-up that appears at mouse hover on seed
-            let popup = L.popup()
-            .setLatLng(this.maxBound)
-            .setContent(link)
-            .openOn(map);
-        });
+//FUNCTION TEMPORARY MOUSE HOVER OVER SEED:
+//         this.imgOverlay.on("mouseover", function(){
+//             console.log("mouse hovering seed")
+// //temporary pop-up that appears at mouse hover on seed
+//             let popup = L.popup()
+//             .setLatLng(this.maxBound)
+//             .setContent(link)
+//             .openOn(map);
+//         });
 
         //test seed :
         this.position = null;

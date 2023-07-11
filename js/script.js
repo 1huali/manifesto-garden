@@ -34,9 +34,6 @@ window.onload = (event) => {
 
   L.tileLayer.custom().addTo(map);
            //DESC OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-// let axis1Text = document.getElementById("axis1Text");
-// let axis2Text = document.getElementById("axis2Text");
-// let axis3Text = document.getElementById("axis3Text");
 let axis1Text =   "allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, ";
 let axis2Text =   "hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello";
 let axis3Text =   "beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop";
@@ -47,37 +44,20 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
 
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArray=[];
-let axisObj = new Flower(map,"assets/images/flowerAxis.png",[36.315125, -21.796875],[36.315125+10, -21.796875+17],axis1Text,"axis # : babababbaba");
-let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",[40.773941+10, -74.12544+17], [40.773941, -74.12544],axis2Text,"axis # : bebebebebeb");
-let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",[51.520493, -0.046692], [51.520493+10, -0.046692+17],axis3Text,"axis # : boobooobobob");
+
+//NEW PASS :: X AND Y POS
+let axisObj = new Flower(map,"assets/images/flowerAxis.png",1500,2800,axis1Text,"axis # : babababbaba");
+let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"axis # : bebebebebeb");
+let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"axis # : boobooobobob");
 axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
 
-//chatGPT solution BUT PRE SURE THIS IS WHERE ITS BUGGING:
-function calculatePosition(seedIndex, seedCount) {
-  // Calculate and return the position based on the index and count
-  // You can use trigonometry or any other logic based on your requirements
-  // For simplicity, let's assume a linear distribution
-  let angle = (2 * Math.PI * seedIndex) / seedCount;
-  let radius = 0.01; // Adjust the radius as needed
-  let lat = axisObj.latLngBounds.lat + radius * Math.cos(angle);
-  let lng = axisObj.latLngBounds.lng + radius * Math.sin(angle);
-  console.log(lat,lng)
-  return { lat, lng };
-}
 
 for (let i=0;i<axisArray.length;i++){
-  console.log(axisArray[1]); // Array of seed objects associated with the flower
-axisArray[1].generateSeeds(1);
-
-
+  console.log(axisArray[0]); // Array of seed objects associated with the flower
+axisArray[0].generateSeeds(5);
 }
-
-
-//seeds created thru js: 
-// let seed1 = new Seed (map,"assets/images/seedImg.png",[36.315125+10, -21.796875+10],[36.315125+10+10, -21.796875+17+10],"https://www.galeriegalerieweb.com/");
-// Helper function to calculate the position of the seed within the radial perimeter
 
 
 //POP-UP SETTINGS
