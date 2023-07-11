@@ -53,13 +53,6 @@ axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
 
-
-for (let i=0;i<axisArray.length;i++){
-  console.log(axisArray[0]); // Array of seed objects associated with the flower
-axisArray[0].generateSeeds(5);
-}
-
-
 //POP-UP SETTINGS
   let popup = L.popup();
   function onMapClick(e) {
@@ -70,7 +63,11 @@ axisArray[0].generateSeeds(5);
 }
 // map.on('click', onMapClick);
 
-
+//GENERATE SEEDS AROUND EACH FLOWER
+for (let i=0;i<axisArray.length;i++){
+  console.log(axisArray[0]); // Array of seed objects associated with the flower
+axisArray[i].generateSeeds(5);
+}
 
            //MOBILE SETUPS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 if (L.Browser.mobile) {

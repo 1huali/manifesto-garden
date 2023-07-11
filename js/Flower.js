@@ -67,14 +67,21 @@ class Flower {
         for (let i = 0; i < seedCount; i++) {
 
             let position = this.calculatePosition(i, seedCount);
-
             let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
             console.log("Point in x,y space: " + pointXY);
 
             let pointlatlngSeed = this.map.unproject(pointXY);
             let seed = new Seed(this.map,"assets/images/seedImg.png",pointlatlngSeed,"https://www.galeriegalerieweb.com/");
+            let seed2 = new Seed(this.map,"assets/images/seedImg.png",pointlatlngSeed,"https://www.cameronsworld.net/");
+            let seed3 = new Seed(this.map,"assets/images/seedImg.png",pointlatlngSeed,"https://www.instagram.com/");
+            let seed4 = new Seed(this.map,"assets/images/seedImg.png",pointlatlngSeed,"https://obliquestrategies.ca/");
+
 
           this.seedArray.push(seed);
+          this.seedArray.push(seed2);
+          this.seedArray.push(seed3);
+          this.seedArray.push(seed4);
+
         }
       }
 
