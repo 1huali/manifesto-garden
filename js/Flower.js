@@ -1,13 +1,14 @@
     //this object creates a png into a map object on a map location and that is interactive
 
     class Flower {
-        constructor(map, img, xPos, yPos, info, title) {
+        constructor(map, img, xPos, yPos, info, title,linkArray) {
           this.map = map;
           this.img = img;
           this.xPos = xPos;
           this.yPos = yPos;
           this.title = title;
           this.info = info;
+          this.linkArray = linkArray;
           this.seedArray = [];
       
           let pointXY = L.point(this.xPos, this.yPos);
@@ -43,15 +44,21 @@
               let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
               let pointlatlngSeed = this.map.unproject(pointXY);
           
-              let seed = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://www.galeriegalerieweb.com/", this.xPos, this.yPos );
-              let seed2 = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://www.cameronsworld.net/", this.xPos, this.yPos );
-              let seed3 = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://obliquestrategies.ca/", this.xPos, this.yPos );
-              let seed4 = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "instagram.com/", this.xPos, this.yPos );
-              this.seedArray.push(seed);
-              this.seedArray.push(seed2);
-              this.seedArray.push(seed3);
-              this.seedArray.push(seed4);
-
+              for (let j = 0; j < this.linkArray.length; j++) {
+                let seed = new Seed(
+                  this.map,
+                  "assets/images/seedImg.png",
+                  pointlatlngSeed,
+                  this.linkArray[j],
+                  this.xPos,
+                  this.yPos
+                );
+          
+                this.seedArray.push(seed);
+                console.log(this.seedArray);
+              }
             }
           }
+          
+          
       }

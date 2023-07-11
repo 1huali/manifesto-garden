@@ -45,30 +45,23 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 
 //NEW PASS :: X AND Y POS
-let axisObj = new Flower(map,"assets/images/flowerAxis.png",1500,2800,axis1Text,"axis # : babababbaba");
-let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"axis # : bebebebebeb");
-let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"axis # : boobooobobob");
+let linkArray= ["https://www.instagram.com/","https://www.galeriegalerieweb.com/","https://www.youtube.com/","https://obliquestrategies.ca/","https://www.pinterest.ca/","https://mynoise.net/NoiseMachines/binauralBrainwaveGenerator.php"];
+let linkArray2=["null", "null2", "null3"];
+let linkArray3=["yo","yo2","yo3"];
+
+let axisObj = new Flower(map,"assets/images/flowerAxis.png",1500,2800,axis1Text,"axis # : babababbaba",linkArray);
+let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"axis # : bebebebebeb",linkArray2);
+let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"axis # : boobooobobob",linkArray3);
 let axisArray=[];
 axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
 
-//POP-UP SETTINGS
-  let popup = L.popup();
-  function onMapClick(e) {
-    popup
-    .setLatLng(e.latlng)
-    .setContent("You clicked in " + e.latlng.toString ())
-    .openOn(map);
-}
-
 //GENERATE SEEDS AROUND EACH FLOWER OBJECT
 axisObj.generateSeeds(5);
-axisObj2.generateSeeds(1);
+axisObj2.generateSeeds(3);
 axisObj3.generateSeeds(3);
 
-let linkArray= ["lien1","lien2","lien3","lien4","lien5","lien6", "lien7","lien8"];
-console.log(linkArray)
 
            //MOBILE SETUPS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 if (L.Browser.mobile) {
