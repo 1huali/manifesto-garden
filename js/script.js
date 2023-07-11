@@ -43,12 +43,12 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
 });
 
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-let axisArray=[];
 
 //NEW PASS :: X AND Y POS
 let axisObj = new Flower(map,"assets/images/flowerAxis.png",1500,2800,axis1Text,"axis # : babababbaba");
 let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"axis # : bebebebebeb");
 let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"axis # : boobooobobob");
+let axisArray=[];
 axisArray.push(axisObj);
 axisArray.push(axisObj2);
 axisArray.push(axisObj3);
@@ -61,13 +61,11 @@ axisArray.push(axisObj3);
     .setContent("You clicked in " + e.latlng.toString ())
     .openOn(map);
 }
-// map.on('click', onMapClick);
 
-//GENERATE SEEDS AROUND EACH FLOWER
-for (let i=0;i<axisArray.length;i++){
-  console.log(axisArray[0]); // Array of seed objects associated with the flower
-axisArray[i].generateSeeds(5);
-}
+//GENERATE SEEDS AROUND EACH FLOWER OBJECT
+axisObj.generateSeeds(5);
+axisObj2.generateSeeds(1);
+axisObj3.generateSeeds(3);
 
            //MOBILE SETUPS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 if (L.Browser.mobile) {
