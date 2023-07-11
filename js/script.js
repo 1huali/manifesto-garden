@@ -44,7 +44,6 @@ document.getElementById("sidebar-content-text").innerHTML = "Lorem ipsum dolor s
 
            //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 
-//NEW PASS :: X AND Y POS
 let linkArray= ["https://www.instagram.com/","https://www.galeriegalerieweb.com/","https://www.youtube.com/","https://obliquestrategies.ca/","https://www.pinterest.ca/","https://mynoise.net/NoiseMachines/binauralBrainwaveGenerator.php"];
 let linkArray2=["null", "null2", "null3"];
 let linkArray3=["yo","yo2","yo3"];

@@ -4,6 +4,7 @@
             // const [latitude, longitude] = coord;
             super(map, img, 0, 0, "", ""); // Pass dummy values for xPos and yPos
             this.link = link;
+            console.log(link)
             this.coord = coord;
             this.flowerPosition = flowerPosition; // Add the flower position variable
         
