@@ -67,6 +67,9 @@ axisObj.generateSeeds(5);
 axisObj2.generateSeeds(1);
 axisObj3.generateSeeds(3);
 
+let linkArray= ["lien1","lien2","lien3","lien4","lien5","lien6", "lien7","lien8"];
+console.log(linkArray)
+
            //MOBILE SETUPS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 if (L.Browser.mobile) {
     console.log("mobile version");

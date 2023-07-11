@@ -19,9 +19,9 @@
             this.yPos = pointLayer.lng;
         
             // Update the minBound and maxBound based on the new xPos and yPos
-            this.minBound = [this.xPos, this.yPos];
-            this.maxBound = [this.xPos + 10, this.yPos + 10];
-        
+            this.minBound=[this.coord.lat, this.coord.lng];
+            this.maxBound =[this.coord.lat+10, this.coord.lng+10];
+                 
             this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
             this.imgOverlay.on('click', () => {
               window.open(this.link, '_blank');

@@ -27,7 +27,7 @@
           });
         }
 
-      //calculate the position of the seeds between themselves around a flower's center point
+      //calculate the position of the seeds in offset between themselves around a flower's center point
         calculatePosition(seedIndex, seedCount) {
           let offset = (2 * Math.PI) / seedCount;
           let angle = seedIndex * offset;
