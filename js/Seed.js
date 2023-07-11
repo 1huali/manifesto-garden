@@ -6,7 +6,7 @@
             this.link = link;
             this.coord = coord;
             this.flowerPosition = flowerPosition; // Add the flower position variable
-            console.log(flowerPosition);
+        
             // Calculate the pixel coordinates based on the latitude and longitude
             const pointLatLng = L.latLng(coord.lat, coord.lng);
             const pointXY = map.project(pointLatLng);

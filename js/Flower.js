@@ -26,25 +26,32 @@
             }
           });
         }
-      
+
+      //calculate the position of the seeds between themselves around a flower's center point
         calculatePosition(seedIndex, seedCount) {
           let offset = (2 * Math.PI) / seedCount;
           let angle = seedIndex * offset;
           let radius = 300;
-          let randomNum = Math.random();
-          let xpos_pixel = this.xPos + randomNum + radius * Math.cos(angle);
+          let xpos_pixel = this.xPos  + radius * Math.cos(angle);
           let ypos_pixel = this.yPos + radius * Math.sin(angle);
           return { xpos_pixel, ypos_pixel };
         }
       
         generateSeeds(seedCount) {
-          for (let i = 0; i < seedCount; i++) {
-            let position = this.calculatePosition(i, seedCount);
-            let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
-            let pointlatlngSeed = this.map.unproject(pointXY);
-      
-            let seed = new Seed(this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://www.galeriegalerieweb.com/",position);
-            this.seedArray.push(seed);
+            for (let i = 0; i < seedCount; i++) {
+              let position = this.calculatePosition(i, seedCount);
+              let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
+              let pointlatlngSeed = this.map.unproject(pointXY);
+          
+              let seed = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://www.galeriegalerieweb.com/", this.xPos, this.yPos );
+              let seed2 = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://www.cameronsworld.net/", this.xPos, this.yPos );
+              let seed3 = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "https://obliquestrategies.ca/", this.xPos, this.yPos );
+              let seed4 = new Seed( this.map, "assets/images/seedImg.png", pointlatlngSeed, "instagram.com/", this.xPos, this.yPos );
+              this.seedArray.push(seed);
+              this.seedArray.push(seed2);
+              this.seedArray.push(seed3);
+              this.seedArray.push(seed4);
+
+            }
           }
-        }
       }
