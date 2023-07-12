@@ -26,6 +26,11 @@
             document.getElementById("sidebar-content-text").innerHTML = this.info;
             document.getElementById("sidebar-content-subtitle").innerHTML = this.title;
 
+                 //button change title:
+        let button = document.getElementById('about-desktop-button');
+        button.value = title;
+      
+
             if (L.Browser.mobile) {
               document.getElementById("axisTab-container").style = "display:block";
               document.getElementById("axisTab-content").innerHTML = this.info;

@@ -77,14 +77,16 @@ axisArray.push(axisObj3);
 
 //GENERATE SEEDS AROUND EACH FLOWER OBJECT
 axisObj.generateSeeds(5);
-axisObj2.generateSeeds(3);
+axisObj2.generateSeeds(10);
 axisObj3.generateSeeds(3);
 
            //BUTTONS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
       document.getElementById("resources-desktop-button").addEventListener("click", function(){
       document.getElementById("axisTab-content").innerHTML = "resources to implement";
+      //content append : (À FINIR)
       appendResourcesMsg("> Welcome back, ");
       console.log("clickekdkdkdkkd resources")
+      
     });
     document.getElementById("about-desktop-button").addEventListener("click", function(){
       console.log("clickekdkdkdkkd about")
