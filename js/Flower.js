@@ -1,7 +1,7 @@
     //this object creates a png into a map object on a map location and that is interactive
 
     class Flower {
-        constructor(map, axisNumber, img, xPos, yPos, info, title,linkArray) {
+        constructor(map, axisNumber, img, xPos, yPos, info, title,linkArray, resourceInfo) {
           this.map = map;
           this.img = img;
           this.xPos = xPos;
@@ -11,6 +11,8 @@
           this.linkArray = linkArray;
           this.seedArray = [];
           this.axisNumber= axisNumber;
+          this.resourceInfo= resourceInfo;
+          console.log(resourceInfo);
       
           let pointXY = L.point(this.xPos, this.yPos);
           let pointlatlng = map.unproject(pointXY);
@@ -18,39 +20,23 @@
           this.maxBound = [pointlatlng.lat + 10, pointlatlng.lng + 17];
       
           this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
-      
+
+//Click event on an element and updates the content of various elements based on the value of this.info and this.title.
           this.imgOverlay.on('click', () => {
             document.getElementById("sidebar-content-text").innerHTML = this.info;
+            document.getElementById("sidebar-content-subtitle").innerHTML = this.title;
+
             if (L.Browser.mobile) {
               document.getElementById("axisTab-container").style = "display:block";
               document.getElementById("axisTab-content").innerHTML = this.info;
-              document.getElementById("axis-content-title").innerHTML = this.title;
+              document.getElementById("axisTab-content-subtitle").innerHTML = this.title;
             }
           });
 
-          //title printing on top of element:
-        //to access the map to have the element div on top of the map
-        this.mapLayerArray= Object.keys(this.map._layers);
+          let marker = new L.marker([pointlatlng.lat, pointlatlng.lng], { opacity: 0.00 }); //opacity may be set to zero
+          marker.bindTooltip(this.title, {permanent: true, className: "my-leaflet-tool-tip-class", offset: [15, 70] });
+          marker.addTo(map);
         }
-
-//         print (){
-// this.point = this.map.latLngToLayerPoint(this.n_latLng);
-// this.xPos = this.point.x;
-// this.yPos = this.point.y;
-
-// this.titleEl.style.left = `${this.xPos}px`;
-// this.titleEl.style.top = `${this.yPos}px`;
-//         // hover:
-//         this.titleEl = L.DomUtil.create("div","titleEl",this.map._layers[this.mapLayerArray[0]]._container);
-//         this.titleEl.setAttribute("id","titleEl"+this.arrayNumber);
-//         //position of the hover over its obj:
-//         this.titleEl.style.top = `${this.yPos-20}px`; 
-//         this.titleEl.style.left = `${this.xPos-20}px`; 
-
-//         if (this.locationFilter===true){
-//           this.titleEl.style.textDecoration =  "underline";
-//         }
-//         }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
         calculatePosition(seedIndex, seedCount) {
@@ -70,10 +56,17 @@
           
                 let seed = new Seed(this.map,"assets/images/seedImg.png", pointlatlngSeed, this.linkArray[i]);
                 this.seedArray.push(seed);
-                // console.log(this.seedArray);
-              
             }
           }
           
+          appendResourcesMsg(resourceInfo) {
+            let resourceContainer = document.querySelector("sidebar-content-text");
+            let dataHTMLElement = document.createElement("p");
+            dataHTMLElement.classList.add("mode-prop");
+            dataHTMLElement.innerHTML = resourceInfo;
+            consoleContainer.insertBefore(dataHTMLElement, resourceContainer.firstChild);
           
+            
+          
+          }
       }
