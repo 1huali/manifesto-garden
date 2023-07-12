@@ -1,7 +1,7 @@
     //this object creates a png into a map object on a map location and that is interactive
 
     class Flower {
-        constructor(map, img, xPos, yPos, info, title,linkArray) {
+        constructor(map, axisNumber, img, xPos, yPos, info, title,linkArray) {
           this.map = map;
           this.img = img;
           this.xPos = xPos;
@@ -10,6 +10,7 @@
           this.info = info;
           this.linkArray = linkArray;
           this.seedArray = [];
+          this.axisNumber= axisNumber;
       
           let pointXY = L.point(this.xPos, this.yPos);
           let pointlatlng = map.unproject(pointXY);
@@ -26,7 +27,30 @@
               document.getElementById("axis-content-title").innerHTML = this.title;
             }
           });
+
+          //title printing on top of element:
+        //to access the map to have the element div on top of the map
+        this.mapLayerArray= Object.keys(this.map._layers);
         }
+
+//         print (){
+// this.point = this.map.latLngToLayerPoint(this.n_latLng);
+// this.xPos = this.point.x;
+// this.yPos = this.point.y;
+
+// this.titleEl.style.left = `${this.xPos}px`;
+// this.titleEl.style.top = `${this.yPos}px`;
+//         // hover:
+//         this.titleEl = L.DomUtil.create("div","titleEl",this.map._layers[this.mapLayerArray[0]]._container);
+//         this.titleEl.setAttribute("id","titleEl"+this.arrayNumber);
+//         //position of the hover over its obj:
+//         this.titleEl.style.top = `${this.yPos-20}px`; 
+//         this.titleEl.style.left = `${this.xPos-20}px`; 
+
+//         if (this.locationFilter===true){
+//           this.titleEl.style.textDecoration =  "underline";
+//         }
+//         }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
         calculatePosition(seedIndex, seedCount) {
@@ -44,19 +68,10 @@
               let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
               let pointlatlngSeed = this.map.unproject(pointXY);
           
-              for (let j = 0; j < this.linkArray.length; j++) {
-                let seed = new Seed(
-                  this.map,
-                  "assets/images/seedImg.png", //could create an img array like linkArray if needed
-                  pointlatlngSeed,
-                  this.linkArray[j], //WHY IT ONLY REACHES THE LAST LINK OF THE INDEX
-                  this.xPos,
-                  this.yPos
-                );
-          
+                let seed = new Seed(this.map,"assets/images/seedImg.png", pointlatlngSeed, this.linkArray[i]);
                 this.seedArray.push(seed);
-                console.log(this.seedArray);
-              }
+                // console.log(this.seedArray);
+              
             }
           }
           

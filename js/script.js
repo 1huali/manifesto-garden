@@ -48,9 +48,9 @@ let linkArray= ["https://www.instagram.com/","https://www.galeriegalerieweb.com/
 let linkArray2=["null", "null2", "null3"];
 let linkArray3=["yo","yo2","yo3"];
 
-let axisObj = new Flower(map,"assets/images/flowerAxis.png",1500,2800,axis1Text,"axis # : babababbaba",linkArray);
-let axisObj2 = new Flower(map,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"axis # : bebebebebeb",linkArray2);
-let axisObj3 = new Flower(map,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"axis # : boobooobobob",linkArray3);
+let axisObj = new Flower(map,1,"assets/images/flowerAxis.png",1500,2800,axis1Text,"axis # : babababbaba",linkArray);
+let axisObj2 = new Flower(map,2,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"axis # : bebebebebeb",linkArray2);
+let axisObj3 = new Flower(map,3,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"axis # : boobooobobob",linkArray3);
 let axisArray=[];
 axisArray.push(axisObj);
 axisArray.push(axisObj2);
