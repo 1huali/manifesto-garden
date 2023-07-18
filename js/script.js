@@ -37,6 +37,8 @@ window.onload = (event) => {
 
            //JSON OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
            let axisArray=[];
+           let selectedAxis;
+
 
            async function fetchData() {
             try {
@@ -64,9 +66,14 @@ window.onload = (event) => {
 
                 // Append links to the sidebar
                 document.getElementById("resources-desktop-button").addEventListener("click", function(){
-              appendLinksToSidebar(jsonData.axes[0].links); // For axisObj
-              appendLinksToSidebar(jsonData.axes[1].links); // For axisObj2
-              appendLinksToSidebar(jsonData.axes[2].links); // For axisObj3
+                let selectedAxis = document.getElementById("sidebar-content-subtitle").getAttribute("flowerAxis");
+              axisObj.appendLinksToSidebar(jsonData.axes[selectedAxis].links); 
+
+              if (L.Browser.mobile) {
+                //CHANGER MOBILE BUGG DOESNT PRINT AT CLICK :
+                let selectedAxis = document.getElementById("axisTab-content").getAttribute("flowerAxis");
+                axisObj.appendLinksToSidebar(jsonData.axes[selectedAxis].links); 
+              }
             });
 
               // Now you can use the flower object as needed
@@ -80,9 +87,6 @@ window.onload = (event) => {
            
 
            //DESC OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-// let axis1Text =   "allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, ";
-// let axis2Text =   "hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello";
-// let axis3Text =   "beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop";
 
 //Lorsque l'utilisateur clique sur le titre/logo principal, les propriétés par défaut se réinitialisent :
 document.getElementById("sidebar-titlebox").addEventListener("click", function (){
@@ -106,34 +110,13 @@ document.getElementById("language-button").addEventListener("click", function() 
     francais = true;
   }
 });
-
-//MOVED TO FLOWER
-function appendLinksToSidebar(links) {
-  console.log(links)
-  let linkContainer = document.getElementById("sidebar-content-text");
-
-  // Clear any existing links in the container
-  linkContainer.innerHTML = "";
-
-  // Iterate through the links array and create <p> tags for each link
-  for (const link of links) {
-    console.log(link)
-    const linkElement = document.createElement("a");
-    linkElement.style.display = "block"
-    linkElement.setAttribute("href", link);
-    linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
-    linkElement.textContent = link; // Set the link text as the content of the <a> tag
-
-    // Append the link <p> tag to the link container
-    linkContainer.appendChild(linkElement);
-  }
-}
-
-
             
                        //BUTTONS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
                   document.getElementById("resources-desktop-button").addEventListener("click", function(){
-                  document.getElementById("axisTab-content").innerHTML = "resources to implement";                  
+                    //should be all resources:
+                  document.getElementById("axisTab-content").innerHTML = "resources to implement";
+                  document.getElementById("sidebar-content-text").innerHTML = "resources to implement";                  
+                  
                 });
                 document.getElementById("about-desktop-button").addEventListener("click", function(){
                   console.log("clickekdkdkdkkd about")
@@ -170,10 +153,6 @@ if (L.Browser.mobile) {
     });
 
     //BUTTONS --------------------
-    document.getElementById("resources-mobile-button").addEventListener("click", function(){
-      document.getElementById("axisTab-content").innerHTML = "resources to implement";
-      console.log("clickekdkdkdkkd resources")
-    });
     document.getElementById("about-mobile-button").addEventListener("click", function(){
       console.log("clickekdkdkdkkd about")
       document.getElementById("axisTab-content").innerHTML = "axisInfos to implement";

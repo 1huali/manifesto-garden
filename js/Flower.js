@@ -24,6 +24,8 @@
           this.imgOverlay.on('click', () => {
             document.getElementById("sidebar-content-text").innerHTML = this.description;
             document.getElementById("sidebar-content-subtitle").innerHTML = this.title;
+            document.getElementById("sidebar-content-subtitle").setAttribute("flowerAxis", axisNumber-1);
+            // selectedAxis=axisNumber;
 
                  //button change title:
         let button = document.getElementById('about-desktop-button');
@@ -66,23 +68,46 @@
           }
           
           appendLinksToSidebar(links) {
-            console.log(links)
+            // console.log(links)
             let linkContainer = document.getElementById("sidebar-content-text");
           
             // Clear any existing links in the container
             linkContainer.innerHTML = "";
           
-            // Iterate through the links array and create <p> tags for each link
+            // Iterate through the links array and create <a> tags for each link
             for (const link of links) {
-              console.log(link)
+              console.log(links)
               const linkElement = document.createElement("a");
               linkElement.style.display = "block"
               linkElement.setAttribute("href", link);
               linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
               linkElement.textContent = link; // Set the link text as the content of the <a> tag
-          
+
               // Append the link <p> tag to the link container
               linkContainer.appendChild(linkElement);
+            }
+
+            if (L.Browser.mobile) {
+            // console.log(links)
+            let linkContainer = document.getElementById("axisTab-content");
+          
+            // Clear any existing links in the container
+            linkContainer.innerHTML = "";
+            document.getElementById("axisTab-content").innerHTML="";
+          
+            // Iterate through the links array and create <a> tags for each link
+            for (const link of links) {
+              console.log(links)
+              const linkElement = document.createElement("a");
+              linkElement.style.display = "block"
+              linkElement.setAttribute("href", link);
+              linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
+              linkElement.textContent = link; // Set the link text as the content of the <a> tag
+
+              // Append the link <p> tag to the link container
+              linkContainer.appendChild(linkElement);
+            }
+
             }
           }
 
