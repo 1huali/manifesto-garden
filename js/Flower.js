@@ -65,13 +65,26 @@
             }
           }
           
-          // appendResourcesMsg(resourceInfo) {
-          //   let resourceContainer = document.querySelector("sidebar-content-text");
-          //   let dataHTMLElement = document.createElement("p");
-          //   dataHTMLElement.classList.add("mode-prop");
-          //   dataHTMLElement.innerHTML = resourceInfo;
-          //   consoleContainer.insertBefore(dataHTMLElement, resourceContainer.firstChild);
-          // }
+          appendLinksToSidebar(links) {
+            console.log(links)
+            let linkContainer = document.getElementById("sidebar-content-text");
+          
+            // Clear any existing links in the container
+            linkContainer.innerHTML = "";
+          
+            // Iterate through the links array and create <p> tags for each link
+            for (const link of links) {
+              console.log(link)
+              const linkElement = document.createElement("a");
+              linkElement.style.display = "block"
+              linkElement.setAttribute("href", link);
+              linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
+              linkElement.textContent = link; // Set the link text as the content of the <a> tag
+          
+              // Append the link <p> tag to the link container
+              linkContainer.appendChild(linkElement);
+            }
+          }
 
           
       }

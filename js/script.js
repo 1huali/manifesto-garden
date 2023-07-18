@@ -65,8 +65,8 @@ window.onload = (event) => {
                 // Append links to the sidebar
                 document.getElementById("resources-desktop-button").addEventListener("click", function(){
               appendLinksToSidebar(jsonData.axes[0].links); // For axisObj
-              // appendLinksToSidebar(jsonData.axes[1].links); // For axisObj2
-              // appendLinksToSidebar(jsonData.axes[2].links); // For axisObj3
+              appendLinksToSidebar(jsonData.axes[1].links); // For axisObj2
+              appendLinksToSidebar(jsonData.axes[2].links); // For axisObj3
             });
 
               // Now you can use the flower object as needed
@@ -107,33 +107,26 @@ document.getElementById("language-button").addEventListener("click", function() 
   }
 });
 
-// function appendResourcesMsg(msg) {
-//   let resourceContainer = document.querySelector("sidebar-content-text");
-//   let dataHTMLElement = document.createElement("p");
-//   dataHTMLElement.classList.add("mode-prop");
-//   dataHTMLElement.innerHTML = msg;
-//   consoleContainer.insertBefore(dataHTMLElement, resourceContainer.firstChild);
-// }
-
+//MOVED TO FLOWER
 function appendLinksToSidebar(links) {
-  let linkContainer = document.getElementById("link-container");
+  console.log(links)
+  let linkContainer = document.getElementById("sidebar-content-text");
 
   // Clear any existing links in the container
   linkContainer.innerHTML = "";
 
   // Iterate through the links array and create <p> tags for each link
   for (const link of links) {
-    const linkElement = document.createElement("p");
-    linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <p> tag
-    linkElement.textContent = link; // Set the link text as the content of the <p> tag
+    console.log(link)
+    const linkElement = document.createElement("a");
+    linkElement.style.display = "block"
+    linkElement.setAttribute("href", link);
+    linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
+    linkElement.textContent = link; // Set the link text as the content of the <a> tag
 
     // Append the link <p> tag to the link container
     linkContainer.appendChild(linkElement);
   }
-
-  // Now append the link container to the "sidebar-content" div
-  const sidebarContent = document.getElementById("sidebar-content");
-  sidebarContent.appendChild(linkContainer);
 }
 
 
