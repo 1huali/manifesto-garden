@@ -1,18 +1,17 @@
     //this object creates a png into a map object on a map location and that is interactive
 
     class Flower {
-        constructor(map, axisNumber, img, xPos, yPos, info, title,linkArray, resourceInfo) {
+        constructor(map, axisNumber, img, xPos, yPos, description, title,linkArray, resourceInfo) {
           this.map = map;
           this.img = img;
           this.xPos = xPos;
           this.yPos = yPos;
           this.title = title;
-          this.info = info;
+          this.description = description;
           this.linkArray = linkArray;
           this.seedArray = [];
           this.axisNumber= axisNumber;
           this.resourceInfo= resourceInfo;
-          console.log(resourceInfo);
       
           let pointXY = L.point(this.xPos, this.yPos);
           let pointlatlng = map.unproject(pointXY);
@@ -21,9 +20,9 @@
       
           this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
 
-//Click event on an element and updates the content of various elements based on the value of this.info and this.title.
+//Click event on an element and updates the content of various elements based on the value of this.description and this.title.
           this.imgOverlay.on('click', () => {
-            document.getElementById("sidebar-content-text").innerHTML = this.info;
+            document.getElementById("sidebar-content-text").innerHTML = this.description;
             document.getElementById("sidebar-content-subtitle").innerHTML = this.title;
 
                  //button change title:
@@ -33,7 +32,7 @@
 
             if (L.Browser.mobile) {
               document.getElementById("axisTab-container").style = "display:block";
-              document.getElementById("axisTab-content").innerHTML = this.info;
+              document.getElementById("axisTab-content").innerHTML = this.description;
               document.getElementById("axisTab-content-subtitle").innerHTML = this.title;
             }
           });
@@ -41,6 +40,8 @@
           let marker = new L.marker([pointlatlng.lat, pointlatlng.lng], { opacity: 0.00 }); //opacity may be set to zero
           marker.bindTooltip(this.title, {permanent: true, className: "my-leaflet-tool-tip-class", offset: [15, 70] });
           marker.addTo(map);
+
+          // console.log(`axe: ${this.title}, Descr: ${this.description}, Links: ${this.linkArray}`);
         }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
@@ -64,14 +65,13 @@
             }
           }
           
-          appendResourcesMsg(resourceInfo) {
-            let resourceContainer = document.querySelector("sidebar-content-text");
-            let dataHTMLElement = document.createElement("p");
-            dataHTMLElement.classList.add("mode-prop");
-            dataHTMLElement.innerHTML = resourceInfo;
-            consoleContainer.insertBefore(dataHTMLElement, resourceContainer.firstChild);
+          // appendResourcesMsg(resourceInfo) {
+          //   let resourceContainer = document.querySelector("sidebar-content-text");
+          //   let dataHTMLElement = document.createElement("p");
+          //   dataHTMLElement.classList.add("mode-prop");
+          //   dataHTMLElement.innerHTML = resourceInfo;
+          //   consoleContainer.insertBefore(dataHTMLElement, resourceContainer.firstChild);
+          // }
+
           
-            
-          
-          }
       }

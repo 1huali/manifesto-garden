@@ -24,7 +24,7 @@ window.onload = (event) => {
     },
     options: {
       tileSize: 512, // Adjust the tile size according to your images
-      attribution: "Galerie Galerie © OpenStreetMap contributors Wawa",
+      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and the internet community - THANK U",
     },
   });
 
@@ -33,10 +33,56 @@ window.onload = (event) => {
   };
 
   L.tileLayer.custom().addTo(map);
+
+
+           //JSON OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+           let axisArray=[];
+
+           async function fetchData() {
+            try {
+              const response = await fetch("Axes.json");
+              const jsonData = await response.json();
+              // console.log(jsonData);
+          
+              // Assuming you can access the properties from jsonData
+              // let flowerData = JSON.stringify(jsonData.axes); *TO BE CREATED
+              // let numSeeds = jsonData.axes.links.length;
+
+              // Create the Flower object using the JSON data
+              let axisObj = new Flower(map,1,"assets/images/flowerAxis.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
+              let axisObj2 = new Flower(map,2,"assets/images/flowerAxis2.png",1980,1800,JSON.stringify(jsonData.axes[1].description),jsonData.axes[1].name,jsonData.axes[1].links, "link obj tdb");
+              let axisObj3 = new Flower(map,3,"assets/images/flowerAxis3.png",3000,3200,JSON.stringify(jsonData.axes[2].description),jsonData.axes[2].name,jsonData.axes[2].links, "link obj tdb");
+
+              axisArray.push(axisObj);
+              axisArray.push(axisObj2);
+              axisArray.push(axisObj3);
+
+              //GENERATE SEEDS AROUND EACH FLOWER OBJECT
+              axisObj.generateSeeds(5);
+              axisObj2.generateSeeds(10);
+              axisObj3.generateSeeds(3);
+
+                // Append links to the sidebar
+                document.getElementById("resources-desktop-button").addEventListener("click", function(){
+              appendLinksToSidebar(jsonData.axes[0].links); // For axisObj
+              // appendLinksToSidebar(jsonData.axes[1].links); // For axisObj2
+              // appendLinksToSidebar(jsonData.axes[2].links); // For axisObj3
+            });
+
+              // Now you can use the flower object as needed
+            } catch (error) {
+              console.error("Error fetching the JSON file:", error);
+            }
+          }
+          
+          fetchData(); // Call the function to fetch JSON and create the Flower object
+          
+           
+
            //DESC OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-let axis1Text =   "allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, ";
-let axis2Text =   "hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello";
-let axis3Text =   "beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop";
+// let axis1Text =   "allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo,allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, allo, ";
+// let axis2Text =   "hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello";
+// let axis3Text =   "beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop, boobib, beebop";
 
 //Lorsque l'utilisateur clique sur le titre/logo principal, les propriétés par défaut se réinitialisent :
 document.getElementById("sidebar-titlebox").addEventListener("click", function (){
@@ -69,47 +115,37 @@ document.getElementById("language-button").addEventListener("click", function() 
 //   consoleContainer.insertBefore(dataHTMLElement, resourceContainer.firstChild);
 // }
 
-           //AXIS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+function appendLinksToSidebar(links) {
+  let linkContainer = document.getElementById("link-container");
 
-let linkArray= ["https://www.instagram.com/","https://www.galeriegalerieweb.com/","https://www.youtube.com/","https://obliquestrategies.ca/","https://www.pinterest.ca/","https://mynoise.net/NoiseMachines/binauralBrainwaveGenerator.php"];
-let linkArray2=["null", "null2", "null3"];
-let linkArray3=["yo","yo2","yo3"];
-let resources1Text =   "RESSOURCES ICI AXE 1";
-let resources2Text =   "RESOURCES ICI AXE 2";
-let resources3Text =   "RESOURCES ICI AXE 3";
+  // Clear any existing links in the container
+  linkContainer.innerHTML = "";
 
-var links1 = [
-  { title: 'Title 1', content: 'Content 1' },
-  { title: 'Title 2', content: 'Content 2' },
-  { title: 'Title 3', content: 'Content 3' }
-];
+  // Iterate through the links array and create <p> tags for each link
+  for (const link of links) {
+    const linkElement = document.createElement("p");
+    linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <p> tag
+    linkElement.textContent = link; // Set the link text as the content of the <p> tag
 
-let axisObj = new Flower(map,1,"assets/images/flowerAxis.png",1500,2800,axis1Text,"ÉCORESPONSABILITÉ",linkArray, resources1Text);
-let axisObj2 = new Flower(map,2,"assets/images/flowerAxis2.png",1980,1800,axis2Text,"DÉCOLONISATION",linkArray2, resources2Text);
-let axisObj3 = new Flower(map,3,"assets/images/flowerAxis3.png",3000,3200,axis3Text,"OPEN SOURCE",linkArray3, resources3Text);
-let axisArray=[];
-axisArray.push(axisObj);
-axisArray.push(axisObj2);
-axisArray.push(axisObj3);
+    // Append the link <p> tag to the link container
+    linkContainer.appendChild(linkElement);
+  }
 
-//GENERATE SEEDS AROUND EACH FLOWER OBJECT
-axisObj.generateSeeds(5);
-axisObj2.generateSeeds(10);
-axisObj3.generateSeeds(3);
+  // Now append the link container to the "sidebar-content" div
+  const sidebarContent = document.getElementById("sidebar-content");
+  sidebarContent.appendChild(linkContainer);
+}
 
-           //BUTTONS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-      document.getElementById("resources-desktop-button").addEventListener("click", function(){
-      document.getElementById("axisTab-content").innerHTML = "resources to implement";
-      //content append : (À FINIR)
-      appendResourcesMsg("> Welcome back, ");
-      console.log("clickekdkdkdkkd resources")
-      
-    });
-    document.getElementById("about-desktop-button").addEventListener("click", function(){
-      console.log("clickekdkdkdkkd about")
-      document.getElementById("axisTab-content").innerHTML = "axisInfos to implement";
-    });
 
+            
+                       //BUTTONS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+                  document.getElementById("resources-desktop-button").addEventListener("click", function(){
+                  document.getElementById("axisTab-content").innerHTML = "resources to implement";                  
+                });
+                document.getElementById("about-desktop-button").addEventListener("click", function(){
+                  console.log("clickekdkdkdkkd about")
+                  document.getElementById("axisTab-content").innerHTML = "axisInfos to implement";
+                });
 
            //MOBILE SETUPS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 if (L.Browser.mobile) {
