@@ -10,9 +10,11 @@ window.onload = (event) => {
 
   // tile-images
   let tileImgArray = [];
-  for (let i = 1; i <= 54; i++) {
+  for (let i = 1; i <= 42; i++) {
     let tileImg = new Image();
-    tileImg.src = `assets/data_jaune-splitIG/${i}.png`;
+    // tileImg.src = `assets/black-tile/black-tile${i}.png`;
+    tileImg.src = `assets/ascii-tile/ascii-tile${i}.png`;
+    // tileImg.src = `assets/neurenoirBg/neuronoire-tile${i}.png`;
     tileImgArray.push(tileImg);
   }
            //TILES SETTING ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
@@ -23,8 +25,8 @@ window.onload = (event) => {
       return tileImgArray[i].src;
     },
     options: {
-      tileSize: 512, // Adjust the tile size according to your images
-      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and the internet community - THANK U",
+      tileSize: 150, // Adjust the tile size according to your images
+      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
     },
   });
 
@@ -51,9 +53,9 @@ window.onload = (event) => {
               // let numSeeds = jsonData.axes.links.length;
 
               // Create the Flower object using the JSON data
-              let axisObj = new Flower(map,1,"assets/images/flowerAxis.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
-              let axisObj2 = new Flower(map,2,"assets/images/flowerAxis2.png",1980,1800,JSON.stringify(jsonData.axes[1].description),jsonData.axes[1].name,jsonData.axes[1].links, "link obj tdb");
-              let axisObj3 = new Flower(map,3,"assets/images/flowerAxis3.png",3000,3200,JSON.stringify(jsonData.axes[2].description),jsonData.axes[2].name,jsonData.axes[2].links, "link obj tdb");
+              let axisObj = new Flower(map,1,"assets/flora1.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
+              let axisObj2 = new Flower(map,2,"assets/flora1.png",1980,1800,JSON.stringify(jsonData.axes[1].description),jsonData.axes[1].name,jsonData.axes[1].links, "link obj tdb");
+              let axisObj3 = new Flower(map,3,"assets/flora1.png",3000,3200,JSON.stringify(jsonData.axes[2].description),jsonData.axes[2].name,jsonData.axes[2].links, "link obj tdb");
 
               axisArray.push(axisObj);
               axisArray.push(axisObj2);

@@ -16,7 +16,7 @@
           let pointXY = L.point(this.xPos, this.yPos);
           let pointlatlng = map.unproject(pointXY);
           this.minBound = [pointlatlng.lat, pointlatlng.lng];
-          this.maxBound = [pointlatlng.lat + 10, pointlatlng.lng + 17];
+          this.maxBound = [pointlatlng.lat + 30, pointlatlng.lng + 30];
       
           this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
 
@@ -62,7 +62,7 @@
               let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
               let pointlatlngSeed = this.map.unproject(pointXY);
           
-                let seed = new Seed(this.map,"assets/images/seedImg.png", pointlatlngSeed, this.linkArray[i]);
+                let seed = new Seed(this.map,"assets/images/seedImg2.png", pointlatlngSeed, this.linkArray[i]);
                 this.seedArray.push(seed);
             }
           }

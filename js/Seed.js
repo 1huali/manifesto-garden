@@ -18,7 +18,7 @@ class Seed extends Flower {
 
     // Update the minBound and maxBound based on the new xPos and yPos
     this.minBound = [this.coord.lat, this.coord.lng];
-    this.maxBound = [this.coord.lat + 10, this.coord.lng + 10];
+    this.maxBound = [this.coord.lat + 20, this.coord.lng + 20];
 
     this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
     this.imgOverlay.on('click', () => {
