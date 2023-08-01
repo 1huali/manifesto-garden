@@ -5,9 +5,27 @@ window.onload = (event) => {
   document.getElementById("about-sidebar").style.display = "block";
 
            //MAP SETTING ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-  let map = L.map("map").setView([51.505, -0.09], 4);
-  map.removeControl(map.zoomControl);
+// Set the maximum and minimum zoom levels
+let maxZoomLevel = 6;
+let minZoomLevel = 2;
+// Define the bounds of the map
+const southWest = L.latLng(-90, -180); // Bottom-left corner of the world
+const northEast = L.latLng(90, 180);   // Top-right corner of the world
+const bounds = L.latLngBounds(southWest, northEast);
 
+if (L.Browser.mobile) {
+maxZoomLevel = 6;
+minZoomLevel = 4;
+}
+
+// Initialize the map with minZoom and maxZoom options
+let map = L.map("map", {
+  minZoom: minZoomLevel,
+  maxZoom: maxZoomLevel,
+  maxBounds: bounds, // Restrict the map view to the specified bounds
+}).setView([51.505, -0.09], 4);
+
+map.removeControl(map.zoomControl);
   // tile-images
   let tileImgArray = [];
   for (let i = 1; i <= 35; i++) {
