@@ -10,10 +10,10 @@ window.onload = (event) => {
 
   // tile-images
   let tileImgArray = [];
-  for (let i = 1; i <= 42; i++) {
+  for (let i = 1; i <= 35; i++) {
     let tileImg = new Image();
-    // tileImg.src = `assets/black-tile/black-tile${i}.png`;
-    tileImg.src = `assets/ascii-tile/ascii-tile${i}.png`;
+    tileImg.src = `assets/black-tile/black-tile${i}.png`;
+    // tileImg.src = `assets/ascii-tile/ascii-tile${i}.png`;
     // tileImg.src = `assets/neurenoirBg/neuronoire-tile${i}.png`;
     tileImgArray.push(tileImg);
   }
@@ -53,7 +53,7 @@ window.onload = (event) => {
               // let numSeeds = jsonData.axes.links.length;
 
               // Create the Flower object using the JSON data
-              let axisObj = new Flower(map,1,"assets/flora1.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
+              let axisObj = new Flower(map,1,"assets/fleur-test.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
               let axisObj2 = new Flower(map,2,"assets/flora1.png",1980,1800,JSON.stringify(jsonData.axes[1].description),jsonData.axes[1].name,jsonData.axes[1].links, "link obj tdb");
               let axisObj3 = new Flower(map,3,"assets/flora1.png",3000,3200,JSON.stringify(jsonData.axes[2].description),jsonData.axes[2].name,jsonData.axes[2].links, "link obj tdb");
 
@@ -68,13 +68,35 @@ window.onload = (event) => {
 
                 // Append links to the sidebar
                 document.getElementById("resources-desktop-button").addEventListener("click", function(){
-                let selectedAxis = document.getElementById("sidebar-content-subtitle").getAttribute("flowerAxis");
-              axisObj.appendLinksToSidebar(jsonData.axes[selectedAxis].links); 
 
+                  document.getElementById("sidebar-content-subtitle").innerHTML = "ALL RESOURCES"
+                let allLinks = []; // Create an empty array to store all the links
+
+                for (let i = 0; i < axisArray.length; i++) {
+                  const links = jsonData.axes[i].links;
+                  allLinks = allLinks.concat(links); // Concatenate the current object's links with allLinks
+                }
+              
+                // Now you have an array (allLinks) containing all the links from all the objects.
+                // Pass this array to the appendLinksToSidebar function to display all the links.
+                for (let i = 0; i < axisArray.length; i++) {
+                  axisArray[i].appendLinksToSidebar(allLinks);
+                // }
+                }
               if (L.Browser.mobile) {
-                //CHANGER MOBILE BUGG DOESNT PRINT AT CLICK :
-                let selectedAxis = document.getElementById("axisTab-content").getAttribute("flowerAxis");
-                axisObj.appendLinksToSidebar(jsonData.axes[selectedAxis].links); 
+                let allLinks = []; // Create an empty array to store all the links
+
+                for (let i = 0; i < axisArray.length; i++) {
+                  const links = jsonData.axes[i].links;
+                  allLinks = allLinks.concat(links); // Concatenate the current object's links with allLinks
+                }
+              
+                // Now you have an array (allLinks) containing all the links from all the objects.
+                // Pass this array to the appendLinksToSidebar function to display all the links.
+                for (let i = 0; i < axisArray.length; i++) {
+                  axisArray[i].appendLinksToSidebar(allLinks);
+                // }
+                }
               }
             });
 

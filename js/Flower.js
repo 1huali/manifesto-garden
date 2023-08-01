@@ -16,7 +16,7 @@
           let pointXY = L.point(this.xPos, this.yPos);
           let pointlatlng = map.unproject(pointXY);
           this.minBound = [pointlatlng.lat, pointlatlng.lng];
-          this.maxBound = [pointlatlng.lat + 30, pointlatlng.lng + 30];
+          this.maxBound = [pointlatlng.lat + 30, pointlatlng.lng + 70];
       
           this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
 
