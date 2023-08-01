@@ -118,6 +118,12 @@ document.getElementById("sidebar-content-text").innerHTML = "<article> Avec des 
 document.getElementById("sidebar-content-subtitle").innerHTML = "✿";
 document.getElementById('about-desktop-button').value = "à propos"
 });
+//Lorsque l'utilisateur clique sur le bouton "à propos", les propriétés par défaut se réinitialisent :
+document.getElementById("about-desktop-button").addEventListener("click", function(){
+  document.getElementById("sidebar-content-text").innerHTML = "<article> Avec des engagements clairs et des politiques endossées par son conseil d’administration, la compagnie espère contribuer à réduire les inégalités et à faire avancer le milieu artistique vers des pratiques plus saines. </article> <article> L’égalité de genre et de sexe, la décolonisation et la diversification des programmations artistiques sont des priorités pour MH. Au sein de ses différents projets à titre de diffuseur et lieu de résidence (RIRH, Salon58, FURIES), la présence d’artistes autochtones, de personnes racisées, de membres de communautés queer et/ou minorisées est envisagée comme une norme, et non comme une exception. Ces personnes présentent leurs œuvres et s’adressent au public lors de spectacles, rencontres, panels et discussions. MH met également ses valeurs en action avec des commissariats partagés, la promotion de ses projets dans une optique décoloniale, ainsi que des démarches d’auto-éducation et de partage de connaissances avec le milieu culturel. L’organisme s’engage à soutenir les luttes contre la domination coloniale, le sexisme, le racisme et la discrimination avec des gestes concrets : actions de bénévolat ciblées; diffusion des discours liés à ces luttes; mise sur pied de projets structurants pour stimuler la rencontre entre artistes autochtones et allochtones; attention portée à la mise en valeur des langues et traditions autochtones, reconnaissance du territoire. Des perspectives féministes intersectionnelles guident par ailleurs les choix de la compagnie dans toutes ses initiatives. MH adopte un langage épicène dans ses communications internes et externes, en favorisant la neutralité et, lorsque nécessaire, en utilisant les doublets et doublets abrégés. Les différentes programmations artistiques de Mandoline Hybride (RIRH, Salon58, FURIES) sont portées par une volonté ferme de mettre en avant le travail des femmes et personnes non-binaires. </article>";
+  document.getElementById("sidebar-content-subtitle").innerHTML = "✿";
+});
+
 
 let francais = false;
 //toggle function between french and english :
