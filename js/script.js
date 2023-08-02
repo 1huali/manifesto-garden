@@ -71,8 +71,8 @@ map.removeControl(map.zoomControl);
               // let numSeeds = jsonData.axes.links.length;
 
               // Create the Flower object using the JSON data
-              let axisObj = new Flower(map,1,"assets/fleur-test.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
-              let axisObj2 = new Flower(map,2,"assets/flora1.png",1980,1800,JSON.stringify(jsonData.axes[1].description),jsonData.axes[1].name,jsonData.axes[1].links, "link obj tdb");
+              let axisObj = new Flower(map,1,"assets/images/flora.png",1500,2800,JSON.stringify(jsonData.axes[0].description),jsonData.axes[0].name,jsonData.axes[0].links, "link obj tdb");
+              let axisObj2 = new Flower(map,2,"assets/images/flora.png",1980,1800,JSON.stringify(jsonData.axes[1].description),jsonData.axes[1].name,jsonData.axes[1].links, "link obj tdb");
               let axisObj3 = new Flower(map,3,"assets/flora1.png",3000,3200,JSON.stringify(jsonData.axes[2].description),jsonData.axes[2].name,jsonData.axes[2].links, "link obj tdb");
 
               axisArray.push(axisObj);
@@ -112,8 +112,7 @@ map.removeControl(map.zoomControl);
                 // Now you have an array (allLinks) containing all the links from all the objects.
                 // Pass this array to the appendLinksToSidebar function to display all the links.
                 for (let i = 0; i < axisArray.length; i++) {
-                  axisArray[i].appendLinksToSidebar(allLinks);
-                // }
+                  axisArray[i].appendLinksToSidebar(jsonData.axes[i].name, allLinks);
                 }
               }
             });
@@ -157,6 +156,7 @@ document.getElementById("language-button").addEventListener("click", function() 
     console.log("Switching to français");
     francais = true;
   }
+  
 });
             
                        //BUTTONS OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 

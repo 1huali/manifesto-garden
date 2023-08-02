@@ -44,7 +44,12 @@
           marker.addTo(map);
 
           // console.log(`axe: ${this.title}, Descr: ${this.description}, Links: ${this.linkArray}`);
-        }
+             // Create and style the title element
+    // this.titleElement = document.createElement("div");
+    // this.titleElement.className = "titleEl";
+    // this.titleElement.textContent = title;
+    // document.getElementById("sidebar-content-text").appendChild(this.titleElement);
+  }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
         calculatePosition(seedIndex, seedCount) {
@@ -68,48 +73,46 @@
           }
           
           appendLinksToSidebar(links) {
-            // console.log(links)
             let linkContainer = document.getElementById("sidebar-content-text");
-          
-            // Clear any existing links in the container
-            linkContainer.innerHTML = "";
-          
-            // Iterate through the links array and create <a> tags for each link
+            linkContainer.innerHTML = ""; // Clear the existing links
+        
+            // Append the title to the sidebar
+            const titleElement = document.createElement("div");
+            titleElement.classList.add("titleEl"); // Add a class for styling
+            titleElement.textContent = this.title;
+            linkContainer.appendChild(titleElement);
+        
+            // Append the links for the current object's axis
             for (const link of links) {
-              console.log(links)
+              // Create a container for each link group
+              const linkGroup = document.createElement("div");
+              linkGroup.classList.add("link-group");
+        
+              // Create and append the axis title to the link group
+              const axisTitleElement = document.createElement("div");
+              axisTitleElement.classList.add("axis-title");
+              axisTitleElement.textContent = this.title;
+              linkGroup.appendChild(axisTitleElement);
+        
+              // Create <a> tags for each link in the current axis
               const linkElement = document.createElement("a");
-              linkElement.style.display = "block"
+              linkElement.style.display = "block";
               linkElement.setAttribute("href", link);
               linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
               linkElement.textContent = link; // Set the link text as the content of the <a> tag
-
-              // Append the link <p> tag to the link container
-              linkContainer.appendChild(linkElement);
+        
+              // Append the link <a> tag to the link group
+              linkGroup.appendChild(linkElement);
+        
+              // Append the link group to the link container
+              linkContainer.appendChild(linkGroup);
             }
-
-            if (L.Browser.mobile) {
-            // console.log(links)
-            let linkContainer = document.getElementById("axisTab-content");
-          
-            // Clear any existing links in the container
-            linkContainer.innerHTML = "";
-            document.getElementById("axisTab-content").innerHTML="";
-          
-            // Iterate through the links array and create <a> tags for each link
-            for (const link of links) {
-              console.log(links)
-              const linkElement = document.createElement("a");
-              linkElement.style.display = "block"
-              linkElement.setAttribute("href", link);
-              linkElement.classList.add("mode-prop"); // Add the "mode-prop" class to the <a> tag
-              linkElement.textContent = link; // Set the link text as the content of the <a> tag
-
-              // Append the link <p> tag to the link container
-              linkContainer.appendChild(linkElement);
-            }
-
-            }
+        
+            // Add a separator after the group of links
+            const separator = document.createElement("hr");
+            linkContainer.appendChild(separator);
           }
+          
 
           
       }
