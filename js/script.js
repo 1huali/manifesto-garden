@@ -84,6 +84,23 @@ map.removeControl(map.zoomControl);
               axisObj2.generateSeeds(10);
               axisObj3.generateSeeds(3);
 
+              axisObj.reprint();
+              axisObj2.reprint();
+              axisObj3.reprint();
+
+
+          map.on('moveend', function() {
+
+            axisObj.reprint();
+            axisObj2.reprint();
+            axisObj3.reprint();
+          });
+          map.on('zoomend', function() {
+            axisObj.reprint();
+            axisObj2.reprint();
+            axisObj3.reprint();
+          });
+
 
                 // Append links to the sidebar
                 document.getElementById("resources-desktop-button").addEventListener("click", function(){
@@ -125,12 +142,7 @@ map.removeControl(map.zoomControl);
           }
           
           fetchData(); // Call the function to fetch JSON and create the Flower object
-                                   //calls the function:
-                                   for (let i=0 ; i< axisArray.length;i++){
-                                    console.log("gets here")
-                                    axisArray[i].reprint();
-                                    console.log("gets her e")
-                                       }
+
            
 
            //DESC OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
