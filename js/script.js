@@ -84,6 +84,7 @@ map.removeControl(map.zoomControl);
               axisObj2.generateSeeds(10);
               axisObj3.generateSeeds(3);
 
+
                 // Append links to the sidebar
                 document.getElementById("resources-desktop-button").addEventListener("click", function(){
 
@@ -124,7 +125,12 @@ map.removeControl(map.zoomControl);
           }
           
           fetchData(); // Call the function to fetch JSON and create the Flower object
-          
+                                   //calls the function:
+                                   for (let i=0 ; i< axisArray.length;i++){
+                                    console.log("gets here")
+                                    axisArray[i].reprint();
+                                    console.log("gets her e")
+                                       }
            
 
            //DESC OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
