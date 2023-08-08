@@ -265,12 +265,23 @@ body {
         font-size: 50px;
         left: 0px;
         color: #ffffffba;
-        width: 50px;
+        width: max-content;
         height: 50px;
         position:absolute;
         z-index: 100;
         text-align: center;
         /* background: rgb(255, 84, 218); */
+      }
+
+      .flowerEl:hover + .thoughtHoverEl{
+        /* background-color: rgba(255, 255, 255, 0.9); */
+        width: max-content;
+        height: max-content;
+        display: block;
+        /* box-shadow: 10px 10px 5px 12px rgb(178, 182, 183); */
+        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        /* padding: 0.2px; */
+        z-index: 200;
       }
       
 

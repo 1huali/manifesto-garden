@@ -13,7 +13,8 @@
           this.axisNumber= axisNumber;
           this.resourceInfo= resourceInfo;
       
-          this.currentText="NULLLLLL"
+          this.currentText="NULLLLLL";
+          this.fontSize = 10; // Initial font size
           let pointXY = L.point(this.xPos, this.yPos);
           let pointlatlng = map.unproject(pointXY);
           console.log(pointlatlng.lat)
@@ -21,26 +22,25 @@
           this.maxBound = [pointlatlng.lat + 30, pointlatlng.lng + 70];
       
           this.mapLayerArray = Object.keys(this.map._layers);
-          this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
+          // this.imgOverlay = L.imageOverlay(this.img, [this.minBound, this.maxBound], { interactive: true }).addTo(map);
 
 //Click event on an element and updates the content of various elements based on the value of this.description and this.title.
-          this.imgOverlay.on('click', () => {
-            document.getElementById("sidebar-content-text").innerHTML = this.description;
-            document.getElementById("sidebar-content-subtitle").innerHTML = this.title;
-            document.getElementById("sidebar-content-subtitle").setAttribute("flowerAxis", axisNumber-1);
-            // selectedAxis=axisNumber;
-
-                 //button change title:
-        let button = document.getElementById('about-desktop-button');
-        button.value = title;
+        //   this.imgOverlay.on('click', () => {
+        //     document.getElementById("sidebar-content-text").innerHTML = this.description;
+        //     document.getElementById("sidebar-content-subtitle").innerHTML = this.title;
+        //     document.getElementById("sidebar-content-subtitle").setAttribute("flowerAxis", axisNumber-1);
+        //     // selectedAxis=axisNumber;
+        //          //button change title:
+        // let button = document.getElementById('about-desktop-button');
+        // button.value = title;
       
 
-            if (L.Browser.mobile) {
-              document.getElementById("axisTab-container").style = "display:block";
-              document.getElementById("axisTab-content").innerHTML = this.description;
-              document.getElementById("axisTab-content-subtitle").innerHTML = this.title;
-            }
-          });
+        //     if (L.Browser.mobile) {
+        //       document.getElementById("axisTab-container").style = "display:block";
+        //       document.getElementById("axisTab-content").innerHTML = this.description;
+        //       document.getElementById("axisTab-content-subtitle").innerHTML = this.title;
+        //     }
+        //   });
 
           let marker = new L.marker([pointlatlng.lat, pointlatlng.lng], { opacity: 0.00 }); //opacity may be set to zero
           marker.bindTooltip(this.title, {permanent: true, className: "my-leaflet-tool-tip-class", offset: [15, 70] });
@@ -52,6 +52,16 @@
     // this.titleElement.className = "titleEl";
     // this.titleElement.textContent = title;
     // document.getElementById("sidebar-content-text").appendChild(this.titleElement);
+  }
+
+  adjustFontSize() {
+    const currentZoom = this.map.getZoom();
+    // Adjust font size based on the current zoom level
+    this.fontSize = 10 * currentZoom;
+
+    // Set the font size of the element
+    this.element.style.fontSize = `${this.fontSize}px`;
+    console.log(this.element.style.fontSize)
   }
 
   //The reprint() function redraws the elements on the map. 
@@ -69,6 +79,8 @@ reprint() {
   if (!this.element) {
     this.element = L.DomUtil.create("div", "flowerEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.element.setAttribute("id", "flower" + this.axisNumber);
+
+    this.adjustFontSize();
   }
 
   // Update the position of the thought element
@@ -76,8 +88,8 @@ reprint() {
   this.element.style.top = `${yPos}px`;
 
   // Set any other properties or update the element's content as needed
-  this.element.innerHTML = "✿"; // Set the content to the flower symbol
-
+  this.element.innerHTML = "꧁ ✿ ꧂"; // Set the content to the flower symbol
+// this.hover();
 }
           //The hover() function adds a click event to a DIV and displays a thought.
     //It also creates a new DIV element with an ID and a class name. If the thought is already saved as a favorite, 
