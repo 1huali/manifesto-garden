@@ -53,7 +53,7 @@ map.removeControl(map.zoomControl);
   // };
 
 // Define the tile layer with the appropriate URL template and options
-L.tileLayer(`assets/background/{z}_{x}_{y}.jpg`, {
+L.tileLayer(`assets/tiles/blanc/0_0_0.jpg`, {
   minZoom: minZoomLevel,  // Set the minimum zoom level
   maxZoom: maxZoomLevel,  // Set the maximum zoom level
   bounds: bounds,         // Set the map bounds
