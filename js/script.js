@@ -36,23 +36,47 @@ map.removeControl(map.zoomControl);
     tileImgArray.push(tileImg);
   }
            //TILES SETTING ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+//custom setting : 
+  // L.TileLayer.Custom = L.TileLayer.extend({
+  //   getTileUrl: function (coords) {
+  //     let i = Math.floor(Math.random() * tileImgArray.length);
+  //     return tileImgArray[i].src;
+  //   },
+  //   options: {
+  //     tileSize: 150, // Adjust the tile size according to your images
+  //     attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
+  //   },
+  // });
 
-  L.TileLayer.Custom = L.TileLayer.extend({
-    getTileUrl: function (coords) {
-      let i = Math.floor(Math.random() * tileImgArray.length);
-      return tileImgArray[i].src;
-    },
-    options: {
-      tileSize: 150, // Adjust the tile size according to your images
-      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
-    },
-  });
+  // L.tileLayer.custom = function () {
+  //   return new L.TileLayer.Custom();
+  // };
 
-  L.tileLayer.custom = function () {
-    return new L.TileLayer.Custom();
-  };
+// Define the tile layer with the appropriate URL template and options
+L.tileLayer(`assets/background/{z}_{x}_{y}.jpg`, {
+  minZoom: minZoomLevel,  // Set the minimum zoom level
+  maxZoom: maxZoomLevel,  // Set the maximum zoom level
+  bounds: bounds,         // Set the map bounds
+  tileSize: 256,          // Adjust the tile size if necessary
+  attribution: 'Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U'
+}).addTo(map);
 
-  L.tileLayer.custom().addTo(map);
+  // L.tileLayer.custom().addTo(map);
+
+  //traverse css map width/height to a js variable :
+         let mapContainer = document.getElementById('map');
+        let mapWidthCSS = getComputedStyle(mapContainer).getPropertyValue('width');
+        let mapHeightCSS = getComputedStyle(mapContainer).getPropertyValue('height');
+        
+        // Parse the CSS values to remove 'px' and convert to numbers
+        let mapWidth = parseFloat(mapWidthCSS);
+        let mapHeight = parseFloat(mapHeightCSS);
+
+        // Use the parsed values for other calculations or assignments
+        console.log('Map Width (CSS):', mapWidthCSS);
+        console.log('Map Height (CSS):', mapHeightCSS);
+        console.log('Map Width (Parsed):', mapWidth);
+        console.log('Map Height (Parsed):', mapHeight);
 
 
            //JSON OBJECTS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
