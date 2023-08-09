@@ -6,7 +6,7 @@ window.onload = (event) => {
 
            //MAP SETTING ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 // Set the maximum and minimum zoom levels
-let maxZoomLevel = 6;
+let maxZoomLevel = 5;
 let minZoomLevel = 2;
 // Define the bounds of the map
 const southWest = L.latLng(-90, -180); // Bottom-left corner of the world
@@ -14,16 +14,17 @@ const northEast = L.latLng(90, 180);   // Top-right corner of the world
 const bounds = L.latLngBounds(southWest, northEast);
 
 if (L.Browser.mobile) {
-maxZoomLevel = 6;
+maxZoomLevel = 5;
 minZoomLevel = 4;
 }
-
 // Initialize the map with minZoom and maxZoom options
 let map = L.map("map", {
   minZoom: minZoomLevel,
   maxZoom: maxZoomLevel,
   maxBounds: bounds, // Restrict the map view to the specified bounds
-}).setView([51.505, -0.09], 4);
+}).setView([0, -90], 5); //sabine's settings
+// }).setView([51.505, -0.09], 4); //old settings
+// old setting that works with the current seed positions : setView([51.505, -0.09], 4);
 
 map.removeControl(map.zoomControl);
   // tile-images
@@ -36,7 +37,7 @@ map.removeControl(map.zoomControl);
     tileImgArray.push(tileImg);
   }
            //TILES SETTING ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-//custom setting : 
+//code for a randomized tile : 
   // L.TileLayer.Custom = L.TileLayer.extend({
   //   getTileUrl: function (coords) {
   //     let i = Math.floor(Math.random() * tileImgArray.length);
@@ -53,13 +54,14 @@ map.removeControl(map.zoomControl);
   // };
 
 // Define the tile layer with the appropriate URL template and options
-L.tileLayer(`assets/tiles/blanc/0_0_0.jpg`, {
+L.tileLayer(`assets/tiles/blanc/{z}_{x}_{y}.jpg`, {
   minZoom: minZoomLevel,  // Set the minimum zoom level
   maxZoom: maxZoomLevel,  // Set the maximum zoom level
   bounds: bounds,         // Set the map bounds
   tileSize: 256,          // Adjust the tile size if necessary
   attribution: 'Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U'
 }).addTo(map);
+
 
   // L.tileLayer.custom().addTo(map);
 
